@@ -1,3 +1,5 @@
+// script.js
+// Owen Gallegos
 
 
 
@@ -8,6 +10,8 @@ class Book {
         this.author = author;
         this.year = year;
         this.genre = genre;
+
+        this.checkedOut = false;
     }
 
     getSummary()
@@ -65,9 +69,11 @@ editBookForm.addEvenetListener("submit", function (e) {
 function displayBooks()
 {
     bookList.innerHTML = "";
-    bookArray.forEach((book) => {
+    bookArray.forEach((book, index) => {
         const li = document.createElement("li");
         li.textContent = book.getSummary();
+        li.style.cursor = "pointer";
+        li.addEventListener("click", () => handleBookClick(index));
         bookList.appendChild(li);
     });
 }
@@ -87,6 +93,13 @@ function searchBooks()
         li.textContent = book.getSummary();
         searchResults.appendChild(li);
     });
+}
+
+
+
+function handleBookClick(index)
+{
+    
 }
 
 
