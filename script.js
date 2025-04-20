@@ -52,7 +52,7 @@ function displayBooks()
     bookList.innerHTML = "";
     books.forEach((book) => {
         const li = document.createElement("li");
-        li.textContent = "${book.title} (${book.year}) - Genre: ${book.genre}";
+        li.textContent = `${book.title} (${book.year}) - Genre: ${book.genre}`;
         bookList.appendChild(li);
     });
 }
@@ -69,7 +69,7 @@ function searchBooks()
     searchResults.innerHTML = "";
     filteredBooks.forEach((book) => {
         const li = document.createElement("li");
-        li.textContent = '${book.title} by ${book.author} (${book.year}) - Genre: ${book.genre}';
+        li.textContent = `${book.title} by ${book.author} (${book.year}) - Genre: ${book.genre}`;
         searchResults.appendChild(li);
     });
 }
