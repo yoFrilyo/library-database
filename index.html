@@ -29,12 +29,6 @@
             </form>
         </section>
         <section>
-            <h2>Edit Book</h2>
-            <form id="editBookForm">
-
-            </form>
-        </section>
-        <section>
             <h2>Search Books</h2>
             <input type="text" id="searchQuery" placeholder="Search for books...">
             <button onclick="searchBooks()">Search</button>
@@ -43,6 +37,15 @@
         <section>
             <h2>All Books</h2>
             <ul id="bookList"></ul>
+
+            <div id="bookModal" class="modal hidden">
+                <div class="modal-content">
+                    <p id="modalText"></p>
+                    <button id="editBtn">Edit</button>
+                    <button id="deleteBtn">Delete</button>
+                    <button id="cancelBtn">Cancel</button>
+                </div>
+            </div>
         </section>
         <script src="script.js"></script>
     </body>

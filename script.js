@@ -27,6 +27,7 @@ const editBookForm = document.getElementById("editBookForm");
 const searchQuery = document.getElementById("searchQuery");
 const bookList = document.getElementById("bookList");
 const searchResults = document.getElementById("searchResults");
+const modal = document.getElementById("bookModal");
 
 
 
@@ -99,7 +100,10 @@ function searchBooks()
 
 function handleBookClick(index)
 {
-    
+    const book = bookArray[index];
+
+    modalText.textContent = `What would you like to do with "${book.title}" by ${book.author}?`;
+    modal.classList.remove("hidden");
 }
 
 
