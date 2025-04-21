@@ -18,16 +18,27 @@ class Book {
     {
         return `${this.title} by ${this.author} (${this.year}) - Genre: ${this.genre}`;
     }
+
+    checkout()
+    {
+
+    }
+
+    edit()
+    {
+        
+    }
 }
 
 let bookArray = [];
+let selectedBookIndex = null;
 
 const addBookForm = document.getElementById("addBookForm");
 const editBookForm = document.getElementById("editBookForm");
 const searchQuery = document.getElementById("searchQuery");
 const bookList = document.getElementById("bookList");
 const searchResults = document.getElementById("searchResults");
-const modal = document.getElementById("bookModal");
+const prompt = document.getElementById("promptMenu");
 
 
 
@@ -100,12 +111,49 @@ function searchBooks()
 
 function handleBookClick(index)
 {
-    const book = bookArray[index];
+    //const book = bookArray[index];
 
-    modalText.textContent = `What would you like to do with "${book.title}" by ${book.author}?`;
-    modal.classList.remove("hidden");
+    //modalText.textContent = `What would you like to do with "${book.title}" by ${book.author}?`;
+    //modal.classList.remove("hidden");
+
+    selectedBookIndex = index;
+
+    prompt.style.display = "block";
+
+    document.onclick = function (e) {
+        if (e.target.tagName === "LI") {
+            prompt.style.left = `${e.pageX}px`;
+            prompt.style.top = `${e.pageY}px`;
+        }
+    };
 }
 
+function hidePrompt() {
+    prompt.style.display = "none";
+}
+
+
+function handlePromptAction(action) {
+    const book = bookArray[selectedBookIndex];
+    if (!book) return;
+
+    switch (action) {
+        case "checkout":
+            book.checkout();
+            break;
+        case "edit":
+            book.edit();
+            break;
+        case "delete":
+            if (confirm(`Delete "${book.title}"`)) {
+                bookArray.splice(selectedBookIndex, 1);
+            }
+            break;
+        case "cancel":
+        default:
+            break;
+    }
+}
 
 
 displayBooks();
