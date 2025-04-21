@@ -21,12 +21,16 @@ class Book {
 
     checkout()
     {
-
+        if (this.checkedOut) {
+            alert(`"${this.title}" is already checked out.`);
+            return;
+        }
+        this.checkedOut = true;
     }
 
     edit()
     {
-
+        
     }
 }
 
@@ -162,7 +166,7 @@ function handlePromptAction(action) {
             book.edit();
             break;
         case "delete":
-            if (confirm(`Delete "${book.title}"`)) {
+            if (confirm(`Delete "${book.title}"?`)) {
                 bookArray.splice(selectedBookIndex, 1);
             }
             break;
