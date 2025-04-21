@@ -47,7 +47,7 @@ addBookForm.addEventListener("submit", function (e) {
 
 
 
-editBookForm.addEvenetListener("submit", function (e) {
+editBookForm.addEventListener("submit", function (e) {
     e.preventDefault();
 
     const title = document.getElementById("editTitle").value;
@@ -55,9 +55,9 @@ editBookForm.addEvenetListener("submit", function (e) {
     const year = document.getElementById("editYear").value;
     const genre = document.getElementById("editGenre").value;
 
-    const bookIndex = books.findIndex((book) => book.title === title);
+    const bookIndex = bookArray.findIndex((book) => book.title === title);
     if (bookIndex > -1) {
-        books[bookIndex] = { title, author, year, genre };
+        bookArray[bookIndex] = { title, author, year, genre };
         displayBooks();
         editBookForm.reset();
     } else {
