@@ -53,6 +53,7 @@ ul li {
 }
 
 .prompt-menu {
+    color: #333;
     background-color: white;
     border: 1px solid #ccc;
     padding: 8px;

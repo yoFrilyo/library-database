@@ -198,11 +198,11 @@ editBookForm.addEventListener("submit", function (e) {
     if (selectedBookIndex == null) {
         return;
     }
-    const book = bookArray[selectedBookIndex];
-    book.title = title;
-    book.author = author;
-    book.year = year;
-    book.genre = genre;
+    //let book = bookArray[selectedBookIndex];
+    bookArray[selectedBookIndex].title = title;
+    bookArray[selectedBookIndex].author = author;
+    bookArray[selectedBookIndex].year = year;
+    bookArray[selectedBookIndex].genre = genre;
 
     editModalOveraly.style.display = "none";
     displayBooks();
