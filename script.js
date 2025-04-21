@@ -26,12 +26,13 @@ class Book {
 
     edit()
     {
-        
+
     }
 }
 
 let bookArray = [];
 let selectedBookIndex = null;
+let currentPrompt = null;
 
 const addBookForm = document.getElementById("addBookForm");
 const editBookForm = document.getElementById("editBookForm");
@@ -111,21 +112,37 @@ function searchBooks()
 
 function handleBookClick(index)
 {
-    //const book = bookArray[index];
+    //selectedBookIndex = index;
 
-    //modalText.textContent = `What would you like to do with "${book.title}" by ${book.author}?`;
-    //modal.classList.remove("hidden");
+    // prompt.style.display = "block";
+
+    // document.onclick = function (e) {
+    //     if (e.target.tagName === "LI") {
+    //         prompt.style.left = `${e.pageX}px`;
+    //         prompt.style.top = `${e.pageY}px`;
+    //     }
+    // };
 
     selectedBookIndex = index;
+    const promptMenu = document.getElementById("promptMenu")
+    const bookItems = bookList.querySelectorAll("li");
 
-    prompt.style.display = "block";
+    if (currentPrompt && currentPrompt.parentNode) {
+        curentPrompt.remove();
+    }
 
-    document.onclick = function (e) {
-        if (e.target.tagName === "LI") {
-            prompt.style.left = `${e.pageX}px`;
-            prompt.style.top = `${e.pageY}px`;
-        }
-    };
+    const newPrompt = promptMenu.cloneNode(true);
+    newPrompt.style.display = "block";
+    currentPrompt = newPrompt
+
+    const clickedItem = bookItems[index];
+    clickedItem.after(newPrompt);
+
+    newPrompt.innerHTML =
+        `<button onclick="handlePromptAction('checkout')">Checkout</button>` +
+        `<button onclick="handlePromptAction('edit')">Edit</button>` +
+        `<button onclick="handlePromptAction('delete')">Delete</button>` +
+        `<button onclick="handlePromptAction('cancel')">Cancel</button>`;
 }
 
 function hidePrompt() {
@@ -153,6 +170,9 @@ function handlePromptAction(action) {
         default:
             break;
     }
+
+    hidePrompt();
+    displayBooks();
 }
 
 
