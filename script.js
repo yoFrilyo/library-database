@@ -30,7 +30,12 @@ class Book {
 
     edit()
     {
-        
+        document.getElementById("editTitle").value = this.title;
+        document.getElementById("editAuthor").value = this.author;
+        document.getElementById("editYear").value = this.year;
+        document.getElementById("editGenre").value = this.genre;
+
+        editModalOveraly.style.display = "flex";
     }
 }
 
@@ -40,6 +45,7 @@ let currentPrompt = null;
 
 const addBookForm = document.getElementById("addBookForm");
 const editBookForm = document.getElementById("editBookForm");
+const editModalOveraly = document.getElementById("editModalOverlay");
 const searchQuery = document.getElementById("searchQuery");
 const bookList = document.getElementById("bookList");
 const searchResults = document.getElementById("searchResults");
@@ -178,6 +184,29 @@ function handlePromptAction(action) {
     hidePrompt();
     displayBooks();
 }
+
+
+
+editBookForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const title = document.getElementById("editTitle").value;
+    const author = document.getElementById("editAuthor").value;
+    const year = document.getElementById("editYear").value;
+    const genre = document.getElementById("editGenre").value;
+
+    if (selectedBookIndex == null) {
+        return;
+    }
+    const book = bookArray[selectedBookIndex];
+    book.title = title;
+    book.author = author;
+    book.year = year;
+    book.genre = genre;
+
+    editModalOveraly.style.display = "none";
+    displayBooks();
+})
 
 
 displayBooks();

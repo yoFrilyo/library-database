@@ -38,13 +38,20 @@
             <h2>All Books</h2>
             <ul id="bookList"></ul>
 
-            <div id="promptMenu" class="prompt-menu" style="display: none;">
-                <!-- <p id="propmtText"></p>
-                <button onclick="handlePromptAction('checkout')">Checkout</button>
-                <button onclick="handlePromptAction('edit')">Edit</button>
-                <button onclick="handlePromptAction('delete')">Delete</button>
-                <button onclick="handlePromptAction('cancel')">Cancel</button> -->
-            </div>
+            <div id="promptMenu" class="prompt-menu" style="display: none;"></div>
+            <div id="editModalOverlay">
+                <div id="editModal">
+                  <form id="editBookForm">
+                    <h2>Edit Book</h2>
+                    <label>Title: <input type="text" id="editTitle" required></label><br>
+                    <label>Author: <input type="text" id="editAuthor" required></label><br>
+                    <label>Year: <input type="number" id="editYear" required></label><br>
+                    <label>Genre: <input type="text" id="editGenre" required></label><br><br>
+                    <button type="submit">Save</button>
+                    <button type="button" onclick="closeEditModal()">Cancel</button>
+                  </form>
+                </div>
+              </div>
         </section>
         <script src="script.js"></script>
     </body>
