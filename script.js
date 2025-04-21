@@ -204,9 +204,9 @@ editBookForm.addEventListener("submit", function (e) {
     bookArray[selectedBookIndex].year = year;
     bookArray[selectedBookIndex].genre = genre;
 
-    editModalOveraly.style.display = "none";
     displayBooks();
-})
+    editModalOveraly.style.display = "none";
+});
 
 
 displayBooks();
