@@ -69,23 +69,23 @@ addBookForm.addEventListener("submit", function (e) {
 
 
 
-editBookForm.addEventListener("submit", function (e) {
-    e.preventDefault();
+// editBookForm.addEventListener("submit", function (e) {
+//     e.preventDefault();
 
-    const title = document.getElementById("editTitle").value;
-    const author = document.getElementById("editAuthor").value;
-    const year = document.getElementById("editYear").value;
-    const genre = document.getElementById("editGenre").value;
+//     const title = document.getElementById("editTitle").value;
+//     const author = document.getElementById("editAuthor").value;
+//     const year = document.getElementById("editYear").value;
+//     const genre = document.getElementById("editGenre").value;
 
-    const bookIndex = bookArray.findIndex((book) => book.title === title);
-    if (bookIndex > -1) {
-        bookArray[bookIndex] = { title, author, year, genre };
-        displayBooks();
-        editBookForm.reset();
-    } else {
-        alert("Book not found!");
-    }
-});
+//     const bookIndex = bookArray.findIndex((book) => book.title === title);
+//     if (bookIndex > -1) {
+//         bookArray[bookIndex] = { title, author, year, genre };
+//         displayBooks();
+//         editBookForm.reset();
+//     } else {
+//         alert("Book not found!");
+//     }
+// });
 
 
 
