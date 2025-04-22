@@ -182,12 +182,18 @@ editBookForm.addEventListener("submit", function (e) {
 });
 
 
-
-closeEditModal()
+editBookForm.closeEditModal()
 {
     displayBooks();
-    editModalOverlay.style.display = "none";
+    editModalOveraly.style.display = "none";
 }
+
+
+// closeEditModal()
+// {
+//     displayBooks();
+//     editModalOverlay.style.display = "none";
+// }
 
 
 displayBooks();
