@@ -198,15 +198,22 @@ editBookForm.addEventListener("submit", function (e) {
     if (selectedBookIndex == null) {
         return;
     }
-    //let book = bookArray[selectedBookIndex];
+    
     bookArray[selectedBookIndex].title = title;
     bookArray[selectedBookIndex].author = author;
     bookArray[selectedBookIndex].year = year;
     bookArray[selectedBookIndex].genre = genre;
 
-    displayBooks();
-    editModalOveraly.style.display = "none";
+    closeEditModal();
 });
+
+
+
+closeEditModal()
+{
+    displayBooks()
+    editModalOveraly.style.display = "none";
+}
 
 
 displayBooks();
