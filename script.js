@@ -182,7 +182,7 @@ editBookForm.addEventListener("submit", function (e) {
 });
 
 
-editBookForm.closeEditModal()
+function closeEditModal()
 {
     displayBooks();
     editModalOveraly.style.display = "none";
