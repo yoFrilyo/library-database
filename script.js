@@ -212,7 +212,7 @@ editBookForm.addEventListener("submit", function (e) {
 closeEditModal()
 {
     displayBooks();
-    editModalOverly.style.display = "none";
+    editModalOverlay.style.display = "none";
 }
 
 
