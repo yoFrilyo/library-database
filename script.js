@@ -35,9 +35,11 @@ class Book {
         document.getElementById("editYear").value = this.year;
         document.getElementById("editGenre").value = this.genre;
 
-        editModalOverlay.style.display = "flex";
+        editModalOveraly.style.display = "flex";
     }
 }
+
+
 
 let bookArray = [];
 let selectedBookIndex = null;
@@ -45,7 +47,7 @@ let currentPrompt = null;
 
 const addBookForm = document.getElementById("addBookForm");
 const editBookForm = document.getElementById("editBookForm");
-const editModalOverlay = document.getElementById("editModalOverlay");
+const editModalOveraly = document.getElementById("editModalOverlay");
 const searchQuery = document.getElementById("searchQuery");
 const bookList = document.getElementById("bookList");
 const searchResults = document.getElementById("searchResults");
@@ -66,26 +68,6 @@ addBookForm.addEventListener("submit", function (e) {
     displayBooks();
     addBookForm.reset();
 });
-
-
-
-// editBookForm.addEventListener("submit", function (e) {
-//     e.preventDefault();
-
-//     const title = document.getElementById("editTitle").value;
-//     const author = document.getElementById("editAuthor").value;
-//     const year = document.getElementById("editYear").value;
-//     const genre = document.getElementById("editGenre").value;
-
-//     const bookIndex = bookArray.findIndex((book) => book.title === title);
-//     if (bookIndex > -1) {
-//         bookArray[bookIndex] = { title, author, year, genre };
-//         displayBooks();
-//         editBookForm.reset();
-//     } else {
-//         alert("Book not found!");
-//     }
-// });
 
 
 
@@ -122,17 +104,6 @@ function searchBooks()
 
 function handleBookClick(index)
 {
-    //selectedBookIndex = index;
-
-    // prompt.style.display = "block";
-
-    // document.onclick = function (e) {
-    //     if (e.target.tagName === "LI") {
-    //         prompt.style.left = `${e.pageX}px`;
-    //         prompt.style.top = `${e.pageY}px`;
-    //     }
-    // };
-
     selectedBookIndex = index;
     const promptMenu = document.getElementById("promptMenu")
     const bookItems = bookList.querySelectorAll("li");
@@ -198,15 +169,16 @@ editBookForm.addEventListener("submit", function (e) {
     if (selectedBookIndex == null) {
         return;
     }
-    
+
     bookArray[selectedBookIndex].title = title;
     bookArray[selectedBookIndex].author = author;
     bookArray[selectedBookIndex].year = year;
     bookArray[selectedBookIndex].genre = genre;
 
-    
-    displayBooks();
-    editModalOverlay.style.display = "none";
+    //displayBooks();
+    //editModalOverlay.style.display = "none";
+
+    closeEditModal();
 });
 
 
