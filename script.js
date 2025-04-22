@@ -35,7 +35,7 @@ class Book {
         document.getElementById("editYear").value = this.year;
         document.getElementById("editGenre").value = this.genre;
 
-        editModalOveraly.style.display = "flex";
+        editModalOverlay.style.display = "flex";
     }
 }
 
@@ -45,7 +45,7 @@ let currentPrompt = null;
 
 const addBookForm = document.getElementById("addBookForm");
 const editBookForm = document.getElementById("editBookForm");
-const editModalOveraly = document.getElementById("editModalOverlay");
+const editModalOverlay = document.getElementById("editModalOverlay");
 const searchQuery = document.getElementById("searchQuery");
 const bookList = document.getElementById("bookList");
 const searchResults = document.getElementById("searchResults");
